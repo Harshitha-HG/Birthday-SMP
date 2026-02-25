@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#eaf6ff 0%,#8cc9f4 100%);
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 60px;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.profile-logo{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.title-logo{
+  height:32px;
+}
+
+.nav-links a{
+  margin-left:30px;
+  text-decoration:none;
+  font-weight:500;
+  color:#1e3a8a;
+  transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:#ff6a00;
+}
+
+/* ================= MAIN ================= */
+.contact-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:70px 20px;
+  animation:fadeUp 1s ease forwards;
+  margin-top: -25px;
+}
+
+/* ================= CARD ================= */
+.contact-card{
+  background:linear-gradient(135deg,#dff0ff,#bfe1ff);
+  width:50%;
+  max-width:700px;
+  padding:35px 40px;
+  border-radius:18px;
+  border:2px solid #4a90e2;
+  box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+.contact-card h1{
+  color:#ff6a00;
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.contact-card p.subtitle{
+  color:#1e3a8a;
+  margin-bottom:25px;
+  font-size:14px;
+}
+
+/* ================= ROWS ================= */
+.info-row{
+  display:flex;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.badge{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 14px;
+  border-radius:20px;
+  background:#e0f0ff;
+  color:#1e3a8a;
+  font-weight:500;
+  min-width:120px;
+  margin-right:30px; 
+}
+
+.badge.github,
+.badge.phone{
+  background:#e0f0ff;
+  color:#1e3a8a;
+}
+
+.value{
+  margin-left:15px;
+  color:#1e3a8a;
+  font-size:14px;
+}
+
+/* ================= FOOT TEXT ================= */
+.note{
+  margin-top:15px;
+  font-size:12px;
+  color:#1e3a8a;
+  text-align: center;
+}
+
+.dots{
+  text-align:center;
+  margin:25px 0 10px;
+  transform: translateY(-65px);
+}
+
+.dots span{
+  display:inline-block;
+  width:7px;
+  height:7px;
+  background:#1e3a8a;
+  border-radius:50%;
+  margin:0 4px;
+}
+
+/* ================= FOOTER ================= */
+.footer{
+  text-align:center;
+  font-size:13px;
+  color:#1b7d2b;
+  padding-bottom:30px;
+  transform: translateY(-60px);  /* moves up */
+}
+/* ================= ANIMATION ================= */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+  .contact-card{
+    padding:25px;
+  }
+
+  .info-row{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .value{
+    margin-left:0;
+    margin-top:6px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="profile.png" class="profile-logo">
+    <img src="logo.png" class="title-logo">
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="memories.html">Memories</a>
+    <a href="journey.html">Journey</a>
+    <a href="echoes.html">Echoes</a>
+    <a href="contact.html" class="active">Contact</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<div class="contact-wrapper">
+  <div class="contact-card">
+
+    <h1>Just a Hello!</h1>
+    <p class="subtitle">
+      If you ever feel like saying hi, I’m always here.
+    </p>
+
+    <div class="info-row">
+      <div class="badge">
+        <i class="fa-regular fa-envelope"></i> Email
+      </div>
+      <a href="mailto:harshithahrgopal@gmail.com">    harshithahrgopal@gmail.com
+        </a>
+    </div>
+
+    <div class="info-row">
+      <div class="badge github">
+        <i class="fa-brands fa-github"></i> Github
+      </div>
+      <div class="value">Can’t be Disclosed [Very Confidential]</div>
+    </div>
+
+    <div class="info-row">
+      <div class="badge phone">
+        <i class="fa-solid fa-phone"></i> Ph no
+      </div>
+      <div class="value">Can’t be Disclosed [Very Confidential]</div>
+    </div>
+
+    <div class="note">
+      Yes, you’re allowed to actually message me 😊
+    </div>
+  </div>
+</div>
+  <div class="dots">
+      <span></span><span></span><span></span>
+    </div>
+
+<div class="footer">
+  Made with effort, sent with hope – With warmth, Harshitha
+</div>
+
+</body>
+</html>

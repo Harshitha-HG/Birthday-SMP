@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echoes</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#eaf6ff 0%,#9fd3ff 100%);
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 60px;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.profile-logo{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.title-logo{
+  height:32px;
+  border-radius:6px;
+}
+
+.nav-links a{
+  margin-left:30px;
+  text-decoration:none;
+  font-weight:500;
+  color:#1e3a8a;
+  transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:#ff6a00;
+}
+
+/* ================= MAIN SECTION ================= */
+.echo-container{
+  padding:60px 20px;
+  text-align:center;
+  animation:fadeUp 1s ease forwards;
+}
+
+/* ================= IMAGE WRAPPER ================= */
+.echo-image{
+  width:85%;
+  max-width:850px;
+  margin:0 auto;
+  border-radius:6px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+  overflow:hidden;
+  animation:pop 1.2s ease forwards;
+}
+
+.echo-image img{
+  width:100%;
+  display:block;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes pop{
+  from{
+    opacity:0;
+    transform:scale(0.95);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+  .navbar{
+    padding:10px 20px;
+  }
+
+  .nav-links a{
+    margin-left:15px;
+    font-size:14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="profile.png" class="profile-logo">
+    <img src="logo.png" class="title-logo">
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="memories.html">Memories</a>
+    <a href="journey.html">Journey</a>
+    <a href="echoes.html" class="active">Echoes</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<section class="echo-container">
+
+  <div class="echo-image">
+    <!-- Replace with your actual parchment image file name -->
+    <img src="echo-letter.jpg" alt="Echo Letter">
+  </div>
+
+</section>
+
+</body>
+</html>

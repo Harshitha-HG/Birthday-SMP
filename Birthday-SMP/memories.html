@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memories</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#ffffff 0%,#77C2FC 75%,#5B99CB 100%);
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 60px;
+  background:#fff;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.profile-logo{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+}
+
+.title-logo{
+  height:32px;
+}
+.navbar{
+  position: relative;
+  z-index: 1000;
+}
+.nav-links a{
+  margin-left:30px;
+  text-decoration:none;
+  font-weight:500;
+  color:#1e3a8a;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#ff6a00;
+}
+
+.nav-links a.active{
+  color:#ff6a00;
+}
+
+/* CONTENT */
+.memories{
+  text-align:center;
+  padding:70px 20px;
+  animation:fadeUp 1s ease forwards;
+  margin-top: -58px;
+}
+
+.memories h1{
+  font-size:32px;
+  color:#ff6a00;
+}
+
+.subtitle{
+  margin-top:-3px;
+  font-style:italic;
+  color:#1e3a8a;
+  font-size: 12px;
+}
+
+.memory-box{
+  width:75%;
+  max-width:900px;
+  margin:40px auto;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  transition:0.3s;
+  background:#000;
+}
+
+.memory-box video{
+  width:100%;
+  display:block;
+  border-radius:20px;
+}
+
+.memory-box:hover{
+  transform:scale(1.02);
+}
+
+.view-btn{
+  padding:14px 35px;
+  background:#4CAF50;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  transition:0.3s;
+  display:inline-block;
+}
+
+.view-btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.footer-text{
+  margin-top:12px;
+  font-size:13px;
+  font-style:italic;
+  color:#555;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <img src="profile.png" class="profile-logo">
+    <img src="logo.png" class="title-logo">
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="memories.html" class="active">Memories</a>
+    <a href="journey.html">Journey</a>
+    <a href="echoes.html">Echoes</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="memories">
+  <h1>Fragments of Forever</h1>
+  <p class="subtitle">"Quiet moments are meant to be felt again"</p>
+
+  <div class="memory-box">
+  <video controls autoplay muted loop>
+    <source src="memory.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  </div>
+
+  <a href="journey.html" class="view-btn">View the Moment</a>
+
+  <div class="footer-text">
+    This is just me [Harshitha], trying my best to bring back a few memories for you.
+  </div>
+</section>
+
+</body>
+</html>
