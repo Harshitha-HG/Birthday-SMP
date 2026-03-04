@@ -6,6 +6,7 @@
 <title>Memories</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
 *{
@@ -20,13 +21,16 @@ body{
   background:linear-gradient(135deg,#ffffff 0%,#77C2FC 75%,#5B99CB 100%);
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 .navbar{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:10px 60px;
   background:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .logo{
@@ -39,15 +43,13 @@ body{
   width:45px;
   height:45px;
   border-radius:50%;
+  object-fit:cover;
 }
 
 .title-logo{
   height:32px;
 }
-.navbar{
-  position: relative;
-  z-index: 1000;
-}
+
 .nav-links a{
   margin-left:30px;
   text-decoration:none;
@@ -56,34 +58,32 @@ body{
   transition:0.3s;
 }
 
-.nav-links a:hover{
-  color:#ff6a00;
-}
-
+.nav-links a:hover,
 .nav-links a.active{
   color:#ff6a00;
 }
 
-/* CONTENT */
+/* ================= CONTENT ================= */
 .memories{
   text-align:center;
   padding:70px 20px;
   animation:fadeUp 1s ease forwards;
-  margin-top: -58px;
 }
 
 .memories h1{
   font-size:32px;
   color:#ff6a00;
+  margin-top: -45px;
 }
 
 .subtitle{
   margin-top:-3px;
   font-style:italic;
   color:#1e3a8a;
-  font-size: 12px;
+  font-size:12px;
 }
 
+/* ================= VIDEO BOX ================= */
 .memory-box{
   width:75%;
   max-width:900px;
@@ -98,13 +98,13 @@ body{
 .memory-box video{
   width:100%;
   display:block;
-  border-radius:20px;
 }
 
 .memory-box:hover{
   transform:scale(1.02);
 }
 
+/* ================= BUTTON ================= */
 .view-btn{
   padding:14px 35px;
   background:#4CAF50;
@@ -120,6 +120,7 @@ body{
   box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
+/* ================= FOOTER TEXT ================= */
 .footer-text{
   margin-top:12px;
   font-size:13px;
@@ -127,6 +128,7 @@ body{
   color:#555;
 }
 
+/* ================= ANIMATION ================= */
 @keyframes fadeUp{
   from{
     opacity:0;
@@ -137,22 +139,105 @@ body{
     transform:translateY(0);
   }
 }
+.menu-toggle{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+  color:#1e3a8a;
+  margin-right:10px;
+}
+/* ================= MOBILE RESPONSIVE ================= */
+@media(max-width:900px){
+
+  .menu-toggle{
+  display:block;
+  margin-left:-32px;   /* moves it further left */
+  font-size:24px;
+  cursor:pointer;
+}
+
+.navbar{
+  justify-content:flex-start;
+  gap:12px;
+}
+
+.nav-links{
+  position:absolute;
+  top:70px;
+  left:50%;
+  transform:translateX(-50%);
+  width:50%;
+  background:#fff;
+  border-radius:12px;
+  flex-direction:column;
+  align-items:center;
+  display:none;
+  padding:15px 0;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.nav-links a{
+  margin:10px 0;
+  font-size:16px;
+}
+
+.nav-links.active{
+  display:flex;
+}
+
+
+  .memories{
+    padding:50px 15px;
+  }
+
+  .memories h1{
+    font-size:26px;
+  }
+
+  .subtitle{
+    font-size:11px;
+  }
+
+  .memory-box{
+    width:100%;
+    max-width:100%;
+    margin:30px auto;
+  }
+
+  .view-btn{
+    padding:12px 28px;
+    font-size:15px;
+  }
+
+  .footer-text{
+    font-size:12px;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <nav class="navbar">
+
+  <!-- Hamburger -->
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
   <div class="logo">
     <img src="profile.png" class="profile-logo">
     <img src="logo.png" class="title-logo">
   </div>
-  <div class="nav-links">
+
+  <div class="nav-links" id="nav-links">
     <a href="index.html">Home</a>
     <a href="memories.html" class="active">Memories</a>
     <a href="journey.html">Journey</a>
     <a href="echoes.html">Echoes</a>
     <a href="contact.html">Contact</a>
   </div>
+
 </nav>
 
 <section class="memories">
@@ -160,10 +245,10 @@ body{
   <p class="subtitle">"Quiet moments are meant to be felt again"</p>
 
   <div class="memory-box">
-  <video controls autoplay muted loop>
-    <source src="memory.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+    <video controls autoplay muted loop>
+      <source src="memory.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 
   <a href="journey.html" class="view-btn">View the Moment</a>
@@ -172,6 +257,15 @@ body{
     This is just me [Harshitha], trying my best to bring back a few memories for you.
   </div>
 </section>
+
+<script>
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+toggle.addEventListener("click", function(){
+  navLinks.classList.toggle("active");
+});
+</script>
 
 </body>
 </html>
