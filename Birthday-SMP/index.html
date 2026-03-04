@@ -6,6 +6,7 @@
 <title>Happy Birthday Sunad</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
 *{
@@ -68,7 +69,7 @@ body{
   display:flex;
   justify-content:space-around;
   align-items:flex-start;
-  padding:60px 60px;
+  padding:60px;
   gap:50px;
 }
 
@@ -80,11 +81,18 @@ body{
   box-shadow:0 10px 30px rgba(0,0,0,0.15);
   width:420px;
   animation:fadeUp 1s ease forwards;
+  transition:0.4s ease;
 }
 
 .card img{
   width:100%;
   border-radius:15px;
+}
+
+/* Hover Effect */
+.card:hover{
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
 
 /* ================= RIGHT ================= */
@@ -98,8 +106,7 @@ body{
 .profile-stack{
   position:relative;
   width:320px;
-  margin:0 auto -100px; /* Pulls content upward slightly */
-  z-index:1;
+  margin:0 auto -100px;
 }
 
 .profile-img{
@@ -107,16 +114,28 @@ body{
   height:240px;
   border-radius:50%;
   background:#fff;
+  transition:0.4s ease;
+}
+
+/* Hover Effect */
+.profile-img:hover{
+  transform: scale(1.08);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+.Birthday-Card:hover{
+  transform: scale(1.08);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
 
 .curve-img{
   width:360px;
   margin-top:-65px;
   margin-left:-15px;
-  pointer-events:none; /* 🔥 IMPORTANT FIX */
+  pointer-events:none;
 }
 
 /* ================= BUTTON ================= */
+
 .btn{
   display:inline-block;
   margin-top:35px;
@@ -131,6 +150,7 @@ body{
   position:relative;
   z-index:10;
 }
+
 
 .btn:hover{
   transform:scale(1.08);
@@ -156,37 +176,120 @@ body{
     transform:translateY(0);
   }
 }
-
-/* ================= RESPONSIVE ================= */
+.menu-toggle{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+  color:#1e3a8a;
+  margin-right:10px;
+}
+/* ================= MOBILE RESPONSIVE ================= */
 @media(max-width:900px){
   .main{
     flex-direction:column;
     align-items:center;
+    padding:40px 20px;
   }
+
+  .card{
+    width:100%;
+    max-width:360px;
+  }
+
+  .profile-stack{
+    width:100%;
+    margin:0 auto -60px;
+  }
+
+  .profile-img{
+    width:180px;
+    height:180px;
+  }
+
+  .curve-img{
+    width:260px;
+    margin-top:-45px;
+    margin-left:-10px;
+  }
+
+  .btn{
+    margin-top:25px;
+    padding:12px 30px;
+    font-size:15px;
+  }
+
+  .quote{
+    font-size:12px;
+  }
+
+ .menu-toggle{
+  display:block;
+  margin-left:-32px;   /* moves it further left */
+  font-size:24px;
+  cursor:pointer;
+}
+
+.navbar{
+  justify-content:flex-start;
+  gap:12px;
+}
+
+.nav-links{
+  position:absolute;
+  top:70px;
+  left:50%;
+  transform:translateX(-50%);
+  width:50%;
+  background:#fff;
+  border-radius:12px;
+  flex-direction:column;
+  align-items:center;
+  display:none;
+  padding:15px 0;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.nav-links a{
+  margin:10px 0;
+  font-size:16px;
+}
+
+.nav-links.active{
+  display:flex;
+}
+
 }
 </style>
 </head>
 
 <body>
-
+  
 <nav class="navbar">
+
+  <!-- Hamburger -->
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
   <div class="logo">
     <img src="profile.png" class="profile-logo">
     <img src="logo.png" class="title-logo">
   </div>
-  <div class="nav-links">
+
+  <div class="nav-links" id="nav-links">
     <a href="index.html" class="active">Home</a>
     <a href="memories.html">Memories</a>
     <a href="journey.html">Journey</a>
     <a href="echoes.html">Echoes</a>
     <a href="contact.html">Contact</a>
   </div>
+
 </nav>
 
 <section class="main">
 
   <div class="card">
-    <img src="birthday.png" alt="Birthday Card">
+    <img src="birthday.png" class="Birthday-Card">
   </div>
 
   <div class="right">
@@ -195,7 +298,6 @@ body{
       <img src="Ellipse 8.png" class="curve-img">
     </div>
 
-    <!-- ✅ WORKING BUTTON -->
     <a href="memories.html" class="btn">Play the Memories</a>
 
     <div class="quote">
@@ -204,6 +306,15 @@ body{
   </div>
 
 </section>
+
+<script>
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+toggle.addEventListener("click", function(){
+  navLinks.classList.toggle("active");
+});
+</script>
 
 </body>
 </html>
